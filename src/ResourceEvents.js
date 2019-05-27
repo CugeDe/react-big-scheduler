@@ -276,9 +276,25 @@ class ResourceEvents extends Component {
                         let eventEnd = localeMoment(evt.eventItem.end);
                         let isStart = eventStart >= durationStart;
                         let isEnd = eventEnd <= durationEnd;
-                        let left = index*cellWidth + (index > 0 ? 2 : 3);
+                        let left = index*cellWidth + (index > 0 ? 2 : 3)
                         let width = (evt.span * cellWidth - (index > 0 ? 5 : 6)) > 0 ? (evt.span * cellWidth - (index > 0 ? 5 : 6)) : 0;
                         let top = marginTop + idx*config.eventItemLineHeight;
+
+                        if (cellUnit === CellUnits.Day) {
+                            let startDay = localeMoment(eventStart).startOf('day');
+                            let diffStartDay = eventStart.diff(startDay, 'minutes');
+                            let eventDurationMinutes = eventEnd.diff(eventStart, 'minutes');
+                            // console.log('event id', evt.eventItem.id, diffStartDay, eventDurationMinutes);
+                            left += ((cellWidth / 1440) * diffStartDay);
+                            if (isEnd) {
+                                width = ((cellWidth / 1440) * eventDurationMinutes);
+                            } else {
+                                width -= ((cellWidth / 1440) * diffStartDay);
+                            }
+
+                            // @TODO : comment to enable row automatic height
+                            top = marginTop;
+                        }
                         let eventItem = <DnDEventItem
                                                    {...this.props}
                                                    key={evt.eventItem.id}

@@ -444,6 +444,9 @@ class Scheduler extends Component {
                 onScrollBottom(schedulerData, this.schedulerContent, this.schedulerContent.scrollHeight - this.schedulerContent.clientHeight);
             }
         }
+        // hack for perfomace boost on scroll
+        // TODO fix rerendering on scroll with shouldComponentUpdate
+        return
         this.setState({
             scrollLeft: this.schedulerContent.scrollLeft,
             scrollTop: this.schedulerContent.scrollTop

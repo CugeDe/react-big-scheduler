@@ -89,7 +89,7 @@ const DemoData = {
         },
         {
             id: 66,
-            start: '2017-12-19 12:35:00',
+            start: '2017-12-19 12:30:00',
             end: '2017-12-19 15:30:00',
             resourceId: 'r6',
             title: 'I am normal2',
@@ -341,7 +341,7 @@ const DemoData = {
         },
         {
             id: 66,
-            start: '2017-12-19 12:35:00',
+            start: '2017-12-19 12:30:00',
             end: '2017-12-19 15:30:00',
             resourceId: 'r6',
             title: 'I am normal2',

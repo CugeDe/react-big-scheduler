@@ -291,8 +291,6 @@ class ResourceEvents extends Component {
                             } else {
                                 width -= ((cellWidth / 1440) * diffStartDay);
                             }
-                            // Falsely remove 1px to avoid overlaping
-                            width -= 1;
 
                             // @TODO : comment to enable row automatic height
                             top = marginTop;

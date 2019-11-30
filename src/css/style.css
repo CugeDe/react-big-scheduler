@@ -127,11 +127,11 @@ table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-chi
 }
 
 .round-head {
-    border-radius: 14px 0px 0px 14px;
+    border-radius: 4px 0px 0px 4px;
 }
 
 .round-tail {
-    border-radius: 0px 14px 14px 0px;
+    border-radius: 0px 4px 4px 0px;
 }
 
 .round-none {

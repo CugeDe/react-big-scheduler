@@ -158,6 +158,13 @@ const DemoData = {
             resourceId: 'r1',
             title: 'R1 has many tasks 6'
         },
+        {
+            id: 15,
+            start: '2017-12-22 00:00:00',
+            end: '2017-12-22 23:59:59',
+            resourceId: 'r3',
+            title: 'All day long'
+        },
     ],
     eventsForTaskView: [
         {

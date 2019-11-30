@@ -123,7 +123,7 @@ table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-chi
 }
 
 .round-all {
-    border-radius: 14px;
+    border-radius: 4px;
 }
 
 .round-head {

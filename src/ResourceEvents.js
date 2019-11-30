@@ -285,7 +285,7 @@ class ResourceEvents extends Component {
                             let diffStartDay = eventStart.diff(startDay, 'minutes');
                             let eventDurationMinutes = eventEnd.diff(eventStart, 'minutes');
                             // console.log('event id', evt.eventItem.id, diffStartDay, eventDurationMinutes);
-                            left += ((cellWidth / 1440) * diffStartDay);
+                            left += ((cellWidth / 1440) * diffStartDay) - 2;
                             if (isEnd) {
                                 width = ((cellWidth / 1440) * eventDurationMinutes);
                             } else {

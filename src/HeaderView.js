@@ -45,7 +45,7 @@ class HeaderView extends Component {
                         ));
 
                         element = (
-                            <th key={item.time} className="header3-text" style={style}>
+                            <th key={item.time} className="header3-text" style={style} onClick={onHeaderDateClicked ? onHeaderDateClicked(schedulerData, datetime) : {}}>
                                 <div>
                                     {pList}
                                 </div>

@@ -15,11 +15,7 @@ class HeaderView extends Component {
 
     onHeaderDateClicked = (schedulerData, datetime) => {
         if (this.props.onHeaderDateClicked) {
-            console.log("onHeaderDateClicked() => Calling callback");
             this.props.onHeaderDateClicked(schedulerData, datetime);
-        }
-        else {
-            console.log("onHeaderDateClicked() => No callback binded");
         }
     }
 

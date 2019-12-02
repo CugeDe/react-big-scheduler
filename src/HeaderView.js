@@ -32,15 +32,16 @@ class HeaderView extends Component {
 
         let headerList = [];
         let style = {};
-        if(cellUnit === CellUnits.Hour){
+
+        if (cellUnit === CellUnits.Hour) {
             headers.forEach((item, index) => {
-                if(index % minuteStepsInHour === 0){
+                if (index % minuteStepsInHour === 0) {
                     let datetime = localeMoment(item.time);
                     const isCurrentTime = datetime.isSame(new Date(), 'hour');
 
-                    style = !!item.nonWorkingTime ? {width: cellWidth*minuteStepsInHour, color: config.nonWorkingTimeHeadColor, backgroundColor: config.nonWorkingTimeHeadBgColor} : {width: cellWidth*minuteStepsInHour};
+                    style = !!item.nonWorkingTime ? {width: cellWidth * minuteStepsInHour, color: config.nonWorkingTimeHeadColor, backgroundColor: config.nonWorkingTimeHeadBgColor} : {width: cellWidth*minuteStepsInHour};
 
-                    if(index === headers.length - minuteStepsInHour)
+                    if (index === headers.length - minuteStepsInHour)
                         style = !!item.nonWorkingTime ? {color: config.nonWorkingTimeHeadColor, backgroundColor: config.nonWorkingTimeHeadBgColor} : {};
 
                     let pFormattedList = config.nonAgendaDayCellHeaderFormat.split('|').map(item => datetime.format(item));
@@ -71,13 +72,13 @@ class HeaderView extends Component {
             headerList = headers.map((item, index) => {
                 let datetime = localeMoment(item.time);
                 style = !!item.nonWorkingTime ? {width: cellWidth, color: config.nonWorkingTimeHeadColor, backgroundColor: config.nonWorkingTimeHeadBgColor} : {width: cellWidth};
-                if(index === headers.length - 1)
+                if (index === headers.length - 1)
                     style = !!item.nonWorkingTime ? {color: config.nonWorkingTimeHeadColor, backgroundColor: config.nonWorkingTimeHeadBgColor} : {};
 
                 let pFormattedList = config.nonAgendaOtherCellHeaderFormat.split('|').map(item => datetime.format(item));
 
                 if (typeof nonAgendaCellHeaderTemplateResolver === 'function') {
-                    return nonAgendaCellHeaderTemplateResolver(schedulerData, item, pFormattedList, style)
+                    return nonAgendaCellHeaderTemplateResolver(schedulerData, item, pFormattedList, style);
                 }
 
                 const pList = pFormattedList.map((item, index) => (
@@ -93,8 +94,6 @@ class HeaderView extends Component {
                 );
             });
         }
-
-        console.log("HeaderView rendering");
 
         return (
             <thead>

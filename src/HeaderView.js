@@ -14,7 +14,7 @@ class HeaderView extends Component {
     }
 
     render() {
-        const {schedulerData, nonAgendaCellHeaderTemplateResolver} = this.props;
+        const {schedulerData, nonAgendaCellHeaderTemplateResolver, onHeaderDateClicked} = this.props;
         const {headers, cellUnit, config, localeMoment} = schedulerData;
         let headerHeight = schedulerData.getTableHeaderHeight();
         let cellWidth = schedulerData.getContentCellWidth();
@@ -75,7 +75,7 @@ class HeaderView extends Component {
                 ));
 
                 return (
-                    <th key={item.time} className="header3-text" style={style}>
+                    <th key={item.time} className="header3-text" style={style} onClick={onHeaderDateClicked ? onHeaderDateClicked(schedulerData, datetime) : {}}>
                         <div>
                             {pList}
                         </div>

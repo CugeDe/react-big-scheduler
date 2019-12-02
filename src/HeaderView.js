@@ -94,6 +94,8 @@ class HeaderView extends Component {
             });
         }
 
+        console.log("HeaderView rendering");
+
         return (
             <thead>
                 <tr style={{height: headerHeight}}>

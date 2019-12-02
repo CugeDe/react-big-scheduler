@@ -13,6 +13,16 @@ class HeaderView extends Component {
         nonAgendaCellHeaderTemplateResolver : PropTypes.func,
     }
 
+    onHeaderDateClicked = (schedulerData, datetime) => {
+        if (this.props.onHeaderDateClicked) {
+            console.log("onHeaderDateClicked() => Calling callback");
+            this.props.onHeaderDateClicked(schedulerData, datetime);
+        }
+        else {
+            console.log("onHeaderDateClicked() => No callback binded");
+        }
+    }
+
     render() {
         const {schedulerData, nonAgendaCellHeaderTemplateResolver, onHeaderDateClicked} = this.props;
         const {headers, cellUnit, config, localeMoment} = schedulerData;
@@ -45,7 +55,7 @@ class HeaderView extends Component {
                         ));
 
                         element = (
-                            <th key={item.time} className="header3-text" style={style} onClick={onHeaderDateClicked ? onHeaderDateClicked(schedulerData, datetime) : {}}>
+                            <th key={item.time} className="header3-text" style={style} onClick={this.onHeaderDateClicked.bind(this, schedulerData, datetime)}>
                                 <div>
                                     {pList}
                                 </div>
@@ -75,7 +85,7 @@ class HeaderView extends Component {
                 ));
 
                 return (
-                    <th key={item.time} className="header3-text" style={style} onClick={onHeaderDateClicked ? onHeaderDateClicked(schedulerData, datetime) : {}}>
+                    <th key={item.time} className="header3-text" style={style} onClick={this.onHeaderDateClicked.bind(this, schedulerData, datetime)}>
                         <div>
                             {pList}
                         </div>

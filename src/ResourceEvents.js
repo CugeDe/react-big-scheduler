@@ -285,7 +285,9 @@ class ResourceEvents extends Component {
                             let diffStartDay = eventStart.diff(startDay, 'minutes');
                             let eventDurationMinutes = eventEnd.diff(eventStart, 'minutes');
                             // console.log('event id', evt.eventItem.id, diffStartDay, eventDurationMinutes);
-                            left += ((cellWidth / 1440) * diffStartDay) - 2;
+                            left += ((cellWidth / 1440) * diffStartDay);
+                            if (left - 2 > 0) left -= 2;
+
                             if (isEnd) {
                                 width = ((cellWidth / 1440) * eventDurationMinutes);
                             } else {
@@ -293,7 +295,7 @@ class ResourceEvents extends Component {
                             }
 
                             // Falsely remove 1px to avoid overlaping
-                            width -= 1;
+                            if (width - 1 > 0) width -= 1;
 
                             // @TODO : comment to enable row automatic height
                             top = marginTop;

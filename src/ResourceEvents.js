@@ -278,7 +278,7 @@ class ResourceEvents extends Component {
                         let isEnd = eventEnd <= durationEnd;
                         let left = index * cellWidth + (index > 0 ? 2 : 3)
                         let width = (evt.span * cellWidth - (index > 0 ? 5 : 6)) > 0 ? (evt.span * cellWidth - (index > 0 ? 5 : 6)) : 0;
-                        let top = marginTop + idx * config.eventItemLineHeight;
+                        let top = marginTop/*  + idx * config.eventItemLineHeight */;
 
                         if (cellUnit === CellUnits.Day) {
                             let startDay = localeMoment(eventStart).startOf('day');

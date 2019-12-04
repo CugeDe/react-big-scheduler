@@ -52,7 +52,7 @@ class HeaderView extends Component {
                         ));
 
                         element = (
-                            <th key={item.time} className="header3-text" style={style} onClick={this.onHeaderDateClicked.bind(this, schedulerData, datetime)}>
+                            <th key={item.time} className="header3-text" style={style}>
                                 <div>
                                     {pList}
                                 </div>
@@ -82,7 +82,7 @@ class HeaderView extends Component {
                 ));
 
                 return (
-                    <th key={item.time} className="header3-text" style={style} onClick={this.onHeaderDateClicked.bind(this, schedulerData, datetime)}>
+                    <th key={item.time} className={"header3-text" + (this.props.onHeaderDateClicked ? " header3-btn" : "")} style={style} onClick={this.onHeaderDateClicked.bind(this, schedulerData, datetime)}>
                         <div>
                             {pList}
                         </div>

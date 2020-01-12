@@ -16,11 +16,15 @@
 
 .header3-btn {
     cursor: pointer !important;
-
 }
 
 .header3-btn * {
     cursor: inherit !important;
+}
+
+.header3-non-working-time {
+    color: rgb(153, 153, 153);
+    background-color: rgb(255, 240, 246);
 }
 
 .base-text {

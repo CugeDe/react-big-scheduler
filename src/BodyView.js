@@ -22,8 +22,12 @@ class BodyView extends Component {
             let rowCells = headers.map((header, index) => {
                 let key = item.slotId + '_' + header.time;
                 let style = index === headers.length - 1 ? {} : {width: cellWidth};
-                if(!!header.nonWorkingTime)
-                    style = {...style, backgroundColor: config.nonWorkingTimeBodyBgColor};
+
+                /**
+                 * if(!!header.nonWorkingTime)
+                 *     style = {...style, backgroundColor: config.nonWorkingTimeBodyBgColor};
+                 */
+
                 if(item.groupOnly)
                     style = {...style, backgroundColor: config.groupOnlySlotColor};
                 if(!!behaviors.getNonAgendaViewBodyCellBgColorFunc){
@@ -32,7 +36,13 @@ class BodyView extends Component {
                         style = {...style, backgroundColor: cellBgColor};
                 }
                 return (
-                    <td key={key} style={style}><div></div></td>
+                    <td
+                        key={key}
+                        className={`${!!header.nonWorkingTime ? 'body-non-working-time' : ''}`}
+                        style={style}
+                    >
+                        <div></div>
+                    </td>
                 )
             });
 
